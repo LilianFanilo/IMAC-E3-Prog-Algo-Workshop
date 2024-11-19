@@ -233,6 +233,11 @@ void animation(sil::Image image)
 
 }
 
+void rosace(sil::Image image)
+{
+
+}
+
 int main()
 {
     // {
@@ -292,9 +297,13 @@ int main()
     //     line_circle(image);
     //     image.save("output/line_circle.png");
     // }
+    // {
+    //     sil::Image image{500,500};
+    //     animation(image);
+    // }
     {
         sil::Image image{500,500};
-        animation(image);
+        rosace(image);
     }
 
 }
