@@ -238,6 +238,21 @@ void rosace(sil::Image image)
 
 }
 
+void mosaic(sil::Image image)
+{
+    sil::Image img_mosaic{(image.width() * 5),(image.height() * 5)};
+
+    for (int x{0}; x < img_mosaic.width(); x++)
+    {
+        for (int y{0}; y < img_mosaic.height(); y++)
+        {
+            img_mosaic.pixel(x,y) = image.pixel(x,y);
+        }
+        
+    }
+    
+}
+
 int main()
 {
     // {
@@ -301,9 +316,13 @@ int main()
     //     sil::Image image{500,500};
     //     animation(image);
     // }
+    // {
+    //     sil::Image image{500,500};
+    //     rosace(image);
+    // }
     {
-        sil::Image image{500,500};
-        rosace(image);
+        sil::Image image{"images/logo.png"};
+        mosaic(image);   
     }
 
 }
