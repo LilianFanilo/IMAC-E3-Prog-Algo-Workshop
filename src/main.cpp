@@ -204,7 +204,7 @@ void line_circle(sil::Image& image)
     }
 }
 
-void animation(sil::Image image)
+void animation(sil::Image& image)
 {
     int gif_number {5};
 
@@ -233,24 +233,220 @@ void animation(sil::Image image)
 
 }
 
-void rosace(sil::Image image)
+void rosace(sil::Image& image)
 {
 
 }
 
-void mosaic(sil::Image image)
+void mosaic(sil::Image& image)
 {
     sil::Image img_mosaic{(image.width() * 5),(image.height() * 5)};
+    int counterX {};
+    int counterY {};
 
-    for (int x{0}; x < img_mosaic.width(); x++)
-    {
-        for (int y{0}; y < img_mosaic.height(); y++)
+
+        for (int x{0}; x < img_mosaic.width(); x++)
         {
-            img_mosaic.pixel(x,y) = image.pixel(x,y);
+            counterX++;
+
+            if (counterX == image.width())
+            {
+                counterX = 0 ;
+            }
+            
+
+            for (int y{0}; y < img_mosaic.height(); y++)
+            {
+                counterY++;
+
+                if (counterY == image.height())
+                {
+                    counterY = 0;
+                }
+                
+                img_mosaic.pixel(x,y) = image.pixel(counterX,counterY);
+                
+            }
         }
-        
-    }
     
+    img_mosaic.save("output/mosaic.png");
+}
+
+void new_effect(sil::Image& image)
+{
+    sil::Image img_mosaic{(image.width() * 5),(image.height() * 5)};
+    int counterX {};
+    int counterY {};
+
+    int mirrorX  {image.width() - 1 - counterX};
+
+
+
+        for (int x{0}; x < img_mosaic.width(); x++)
+        {
+            counterX++;
+
+            if (counterX == image.width())
+            {
+                counterX = 0 ;
+            }
+            
+
+            for (int y{0}; y < img_mosaic.height(); y++)
+            {
+                counterY++;
+
+                if (counterY == image.height())
+                {
+                    counterY = 0;
+                }
+                
+                if (counterY % 2 == 0)
+                {
+                    img_mosaic.pixel(x,y) = image.pixel(counterX,counterY);
+                }
+                else
+                {
+                    img_mosaic.pixel(x,y) = image.pixel(mirrorX,counterY);
+
+                }
+                
+                
+                
+            }
+        }
+    
+    img_mosaic.save("output/new_effect.png");
+}
+
+void mirror_mosaic(sil::Image& image)
+{
+    sil::Image img_mosaic{(image.width() * 5),(image.height() * 5)};
+    int counterX {};
+    int counterY {};
+    int isMirrorX {};
+    int isMirrorY {};
+
+
+        for (int x{0}; x < img_mosaic.width(); x++)
+        {
+            counterX++;
+
+            if (counterX == image.width())
+            {
+                counterX = 0 ;
+                isMirrorX ++;
+            }
+            
+
+            for (int y{0}; y < img_mosaic.height(); y++)
+            {
+                counterY++;
+
+                if (counterY == image.height())
+                {
+                    counterY = 0;
+                    isMirrorY ++;
+
+                    if (isMirrorY > 4)
+                    {
+                        isMirrorY = 0;
+                    }
+                    
+                }
+                
+                if (isMirrorX % 2 != 0)
+                {
+                    if (isMirrorY % 2 != 0)
+                    {
+                        img_mosaic.pixel(x,y) = image.pixel((image.width() - 1 - counterX),(image.height() - 1 - counterY));
+                    } 
+                    else 
+                    {
+                        img_mosaic.pixel(x,y) = image.pixel((image.width() - 1 - counterX),counterY);
+                    }
+                } 
+                else
+                {
+                    if (isMirrorY % 2 != 0)
+                    {
+                        img_mosaic.pixel(x,y) = image.pixel(counterX, (image.height() - 1 - counterY));
+                    } 
+                    else 
+                    {
+                        img_mosaic.pixel(x,y) = image.pixel(counterX,counterY);
+                    }
+                }            
+            }
+        }
+    
+            img_mosaic.save("output/mirror_mosaic.png");
+}
+
+void glitch(sil::Image& image)
+{
+    int random_glitch {random_int(1, 15)};
+
+        for (int x{0}; x < image.width(); x++)
+        {
+            for (int y{0}; y < image.height(); y++)
+            {
+                for (int i = 0; i < random_glitch; i++)
+                {
+                    int size_x_max {random_int(1,15)};
+                    int size_y_max {random_int(1,15)};
+
+                    int randomX_1 {random_int(1,image.width())};
+                    int randomY_1 {random_int(1,image.height())};
+                    int randomX_2 {random_int(1,image.width())};
+                    int randomY_2 {random_int(1,image.height())};
+
+                    for (int size_x = 0; size_x < size_x_max; size_x++)
+                    {
+                            int width_1 {randomX_1 + size_x};
+                            int width_2 {randomX_2 + size_x};
+
+                            if ( width_1 >= image.width())
+                            {
+                                width_1 = image.width() - 1 ;
+                            }
+                            else {
+                                continue;
+                            }
+                             if ( width_2 >= image.width() )
+                            {
+                                width_2 = image.width() - 1 ;
+                            }
+                            else {
+                                continue;
+                            }
+                        for (int size_y = 0; size_y < size_y_max; size_y++)
+                        {
+                            int height_1 {randomY_1 + size_y};
+
+                            int height_2 {randomY_2 + size_y};
+                            
+                            if ( height_1 >= image.height() )
+                            {
+                                height_1 = image.height() - 1 ;
+                            }
+                             else {
+                                continue;
+                            }
+                            if ( height_2 >= image.height() )
+                            {
+                                height_2 = image.height() - 1 ;
+                            } else {
+                                continue;
+                            }
+                            
+                            std::swap(image.pixel(width_1 , height_1),image.pixel(width_2 , height_2));
+                        }
+                    }
+                    
+                }
+            }
+        }
 }
 
 int main()
@@ -320,9 +516,22 @@ int main()
     //     sil::Image image{500,500};
     //     rosace(image);
     // }
+    // {
+    //     sil::Image image{"images/logo.png"};
+    //     mosaic(image);   
+    // }
+    // {
+    //     sil::Image image{"images/logo.png"};
+    //     new_effect(image);   
+    // }
+    // {
+    //     sil::Image image{"images/logo.png"};
+    //     mirror_mosaic(image);   
+    // }
     {
         sil::Image image{"images/logo.png"};
-        mosaic(image);   
+        glitch(image);
+        image.save("output/glitch.png");
     }
 
 }
