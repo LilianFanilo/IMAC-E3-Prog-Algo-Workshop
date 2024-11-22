@@ -1,5 +1,6 @@
 #include <sil/sil.hpp>
 #include "random.hpp"
+#include <algorithm>
 
 void keep_green_only(sil::Image& image)
 {
@@ -449,6 +450,137 @@ void glitch(sil::Image& image)
         }
 }
 
+void new_pixel_sorting(sil::Image& image)
+{
+    for (int y{0}; y < image.height(); y++)
+    {
+        for (int x{0}; x < image.width(); x++)
+        {
+            for (int i = x; i < image.width(); i++)
+            {
+
+                float brightness_x = 0.2126f * image.pixel(x,y).r + 0.7152f * image.pixel(x,y).g + 0.0722f * image.pixel(x,y).b;
+
+                float brightness_i = 0.2126f * image.pixel(i,y).r + 0.7152f * image.pixel(i,y).g + 0.0722f * image.pixel(i,y).b;
+
+                if (brightness_x < brightness_i)
+                {
+                    std::swap(image.pixel(x,y),image.pixel(i,y));
+                }
+            }
+            
+        }
+    }
+}
+
+void pixel_sorting(sil::Image& image)
+{
+
+}
+
+struct Lab {float L; float a; float b;};
+
+Lab linear_srgb_to_oklab(glm::vec3 c) 
+{
+    float l = 0.4122214708f * c.r + 0.5363325363f * c.g + 0.0514459929f * c.b;
+	float m = 0.2119034982f * c.r + 0.6806995451f * c.g + 0.1073969566f * c.b;
+	float s = 0.0883024619f * c.r + 0.2817188376f * c.g + 0.6299787005f * c.b;
+
+    float l_ = cbrtf(l);
+    float m_ = cbrtf(m);
+    float s_ = cbrtf(s);
+
+    return {
+        0.2104542553f*l_ + 0.7936177850f*m_ - 0.0040720468f*s_,
+        1.9779984951f*l_ - 2.4285922050f*m_ + 0.4505937099f*s_,
+        0.0259040371f*l_ + 0.7827717662f*m_ - 0.8086757660f*s_,
+    };
+}
+
+void gradient_lab(sil::Image& image)
+{
+    for (int x{0}; x < image.width(); x++)
+    {
+        for (int y{0}; y < image.height(); y++)
+        {
+            float gradient = static_cast<float>(x) / static_cast<float>(image.width() - 1);
+
+            glm::vec3 t = {1.f - gradient, gradient, 0.f};
+
+            image.pixel(x,y) = t;
+        }    
+    }
+    // linear_srgb_to_oklab(image);
+}
+
+# include <complex>
+void mandelbrot(sil::Image& image)
+{
+    for (int x {0}; x < image.width(); x++)
+    {
+        for (int y {0}; y < image.height(); y++)
+        {
+
+            float x0 = (static_cast<float>(x) / static_cast<float>(image.width())) * 2.f - 1.5f;
+            float y0 = (static_cast<float>(y) / static_cast<float>(image.height())) * 2.0f - 1.0f;
+
+            std::complex<float> c {x0, y0};
+            std::complex<float> z {0.0, 0.0};
+
+            int iteration = 0;
+            int max_iteration = 100;
+
+            while (std::abs(z) < 2.0 && iteration < max_iteration)
+            {
+                z = z * z + c;
+                iteration++;
+            }
+
+            if (iteration == max_iteration)
+            {
+                image.pixel(x,y) = glm::vec3{0.f};
+            }
+            else
+            {
+                float t = static_cast<float>(iteration) / static_cast<float>(max_iteration);
+                image.pixel(x,y) = glm::vec3{t};
+
+            }
+        
+        }
+    }
+    
+}
+
+void tramage(sil::Image& image)
+{
+    const int bayer_n = 4;
+    float bayer_matrix_4x4[][bayer_n] = {
+        {    -0.5,       0,  -0.375,   0.125 },
+        {    0.25,   -0.25,   0.375, - 0.125 },
+        { -0.3125,  0.1875, -0.4375,  0.0625 },
+        {  0.4375, -0.0625,  0.3125, -0.1875 },
+    };
+
+    for (int y = 0; y < image.height(); y++) {
+
+        for (int x = 0; x < image.width(); x++) {
+                float bayer_value = bayer_matrix_4x4[y % bayer_n][x % bayer_n];
+    
+                glm::vec3 color = image.pixel(x, y);
+    
+                float luminance = 0.2126f * color.r + 0.7152f * color.g + 0.0722f * color.b;
+    
+                if (luminance > bayer_value) {
+                    image.pixel(x, y) = glm::vec3{0.8f};
+                } else {
+                    image.pixel(x, y) = glm::vec3{0.f};
+                }
+        }
+    }
+    
+}
+
 int main()
 {
     // {
@@ -528,10 +660,35 @@ int main()
     //     sil::Image image{"images/logo.png"};
     //     mirror_mosaic(image);   
     // }
+    // {
+    //     sil::Image image{"images/logo.png"};
+    //     glitch(image);
+    //     image.save("output/glitch.png");
+    // }
+    // {
+    //     sil::Image image{"images/logo.png"};
+    //     new_pixel_sorting(image);
+    //     image.save("output/new_pixel_sorting.png");
+    // }
+    // {
+    //     sil::Image image{"images/logo.png"};
+    //     pixel_sorting(image);
+    //     image.save("output/pixel_sorting.png");
+    // }
+    // {
+    //     sil::Image image{500,500};
+    //     gradient_lab(image);
+    //     image.save("output/gradient_lab.png");
+    // }
     {
-        sil::Image image{"images/logo.png"};
-        glitch(image);
-        image.save("output/glitch.png");
+        sil::Image image{500,500};
+        mandelbrot(image);
+        image.save("output/mandelbrot.png");        
     }
+    // {
+    //     sil::Image image{"images/photo.jpg"};
+    //     tramage(image);
+    //     image.save("output/tramage.png");        
+    // }
 
 }
