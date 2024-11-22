@@ -167,8 +167,6 @@ void new_effect(sil::Image& image)
 
     int mirrorX  {image.width() - 1 - counterX};
 
-
-
         for (int x{0}; x < img_mosaic.width(); x++)
         {
             counterX++;
@@ -177,7 +175,6 @@ void new_effect(sil::Image& image)
             {
                 counterX = 0 ;
             }
-
 
             for (int y{0}; y < img_mosaic.height(); y++)
             {
@@ -197,8 +194,6 @@ void new_effect(sil::Image& image)
                     img_mosaic.pixel(x,y) = image.pixel(mirrorX,counterY);
 
                 }
-
-
 
             }
         }
