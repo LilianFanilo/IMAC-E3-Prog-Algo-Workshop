@@ -91,7 +91,7 @@ Template de projet pour le workshop de prog des Imac1. Vous trouverez le sujet i
 
 | Avant                  |                          Après                           |
 | ---------------------- | :------------------------------------------------------: |
-| ![](./images/logo.png) | <img src="./output/mosaic.png" width="500" height="500"> |
+| ![](./images/logo.png) | <img src="./output/mosaic.png" width="300" height="345"> |
 
 ## ⭐⭐⭐⭐ Mosaïque miroir
 
