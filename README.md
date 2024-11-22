@@ -130,7 +130,15 @@
 
 ## ⭐⭐⭐(⭐) Fractale de Mandelbrot
 
+| Rendu                        |
+| ---------------------------- |
+| ![](./output/mandelbrot.png) |
+
 ## ⭐⭐⭐(⭐) Tramage
+
+| Avant                   |           Après           |
+| ----------------------- | :-----------------------: |
+| ![](./images/photo.jpg) | ![](./output/tramage.png) |
 
 ## Quelques effets
 
