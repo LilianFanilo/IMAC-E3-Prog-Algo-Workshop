@@ -116,11 +116,17 @@
 | ---------------------- | :------------------------------------------------------: |
 | ![](./images/logo.png) | <img src="./output/mosaic.png" width="300" height="345"> |
 
+Pour la mosaïque, j'ai multiplié la taille de l'image par cinq par rapport à l'image d'origine.
+
+À chaque fois que mon compteur x équivaut à la width ou que mon compteur y équivaut à la height de l'image d'origine, le compteur en question se réinitialise à zéro.
+
 ## ⭐⭐⭐⭐ Mosaïque miroir
 
-| Avant                  |              Après              |
-| ---------------------- | :-----------------------------: |
-| ![](./images/logo.png) | ![](./output/mirror_mosaic.png) |
+| Avant                  |                              Après                              |
+| ---------------------- | :-------------------------------------------------------------: |
+| ![](./images/logo.png) | <img src="./output/mirror_mosaic.png" width="300" height="345"> |
+
+Pour la mosaïque miroir,
 
 ## ⭐⭐⭐ Glitch
 
@@ -142,14 +148,10 @@
 
 ## Quelques effets
 
-| Avant                  |            Après             |
-| ---------------------- | :--------------------------: |
-| ![](./images/logo.png) | ![](./output/new_effect.png) |
+| Avant                  |                            Après                             |
+| ---------------------- | :----------------------------------------------------------: |
+| ![](./images/logo.png) | <img src="./output/new_effect.png" width="300" height="345"> |
 
 | Avant                  |                Après                |
 | ---------------------- | :---------------------------------: |
 | ![](./images/logo.png) | ![](./output/new_pixel_sorting.png) |
-
-| Avant                  |              Après              |
-| ---------------------- | :-----------------------------: |
-| ![](./images/logo.png) | ![](./output/mirror_mosaic.png) |
