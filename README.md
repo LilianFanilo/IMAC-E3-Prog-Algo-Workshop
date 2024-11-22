@@ -1,10 +1,33 @@
-# 🐣 S1 | Prog: Workshop
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
-Template de projet pour le workshop de prog des Imac1. Vous trouverez le sujet ici: https://dsmte.github.io/Learn--cpp_programming/Workshop#
+# S1 | Prog: Workshop
+
+<!-- code_chunk_output -->
+
+- [S1 | Prog: Workshop](#s1--prog-workshop)
+  - [⭐ Ne garder que le vert](#-ne-garder-que-le-vert)
+  - [⭐ Échanger les canaux](#-échanger-les-canaux)
+  - [⭐ Noir & Blanc](#-noir--blanc)
+  - [⭐ Négatif](#-négatif)
+  - [⭐ Dégradé](#-dégradé)
+  - [⭐⭐ Miroir](#-miroir)
+  - [⭐⭐ Image bruitée](#-image-bruitée)
+  - [⭐⭐ Rotation de 90°](#-rotation-de-90)
+  - [⭐⭐ RGB split](#-rgb-split)
+  - [⭐⭐ Luminosité](#-luminosité)
+  - [⭐⭐(⭐) Disque](#-disque)
+  - [⭐⭐ Mosaïque](#-mosaïque)
+  - [⭐⭐⭐⭐ Mosaïque miroir](#-mosaïque-miroir)
+  - [⭐⭐⭐ Glitch](#-glitch)
+  - [⭐⭐⭐ Tri de pixels](#-tri-de-pixels)
+  - [⭐⭐⭐ Dégradé dans l'espace de couleur Lab](#-dégradé-dans-lespace-de-couleur-lab)
+  - [⭐⭐⭐(⭐) Fractale de Mandelbrot](#-fractale-de-mandelbrot)
+  - [⭐⭐⭐(⭐) Tramage](#-tramage)
+  - [Quelques effets](#quelques-effets)
+
+<!-- /code_chunk_output -->
 
 ## ⭐ Ne garder que le vert
-
-![](./output/keep_green_only.png)
 
 | Avant                  |               Après               |
 | ---------------------- | :-------------------------------: |
@@ -105,4 +128,20 @@ Template de projet pour le workshop de prog des Imac1. Vous trouverez le sujet i
 
 ## ⭐⭐⭐ Dégradé dans l'espace de couleur Lab
 
+## ⭐⭐⭐(⭐) Fractale de Mandelbrot
+
+## ⭐⭐⭐(⭐) Tramage
+
 ## Quelques effets
+
+| Avant                  |            Après             |
+| ---------------------- | :--------------------------: |
+| ![](./images/logo.png) | ![](./output/new_effect.png) |
+
+| Avant                  |                Après                |
+| ---------------------- | :---------------------------------: |
+| ![](./images/logo.png) | ![](./output/new_pixel_sorting.png) |
+
+| Avant                  |              Après              |
+| ---------------------- | :-----------------------------: |
+| ![](./images/logo.png) | ![](./output/mirror_mosaic.png) |
