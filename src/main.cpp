@@ -281,8 +281,6 @@ void new_effect(sil::Image& image)
 
     int mirrorX  {image.width() - 1 - counterX};
 
-
-
         for (int x{0}; x < img_mosaic.width(); x++)
         {
             counterX++;
@@ -310,9 +308,7 @@ void new_effect(sil::Image& image)
                 {
                     img_mosaic.pixel(x,y) = image.pixel(mirrorX,counterY);
 
-                }
-                
-                
+                }   
                 
             }
         }
@@ -680,11 +676,11 @@ int main()
     //     gradient_lab(image);
     //     image.save("output/gradient_lab.png");
     // }
-    {
-        sil::Image image{500,500};
-        mandelbrot(image);
-        image.save("output/mandelbrot.png");        
-    }
+    // {
+    //     sil::Image image{500,500};
+    //     mandelbrot(image);
+    //     image.save("output/mandelbrot.png");        
+    // }
     // {
     //     sil::Image image{"images/photo.jpg"};
     //     tramage(image);

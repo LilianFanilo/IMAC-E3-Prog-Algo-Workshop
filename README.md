@@ -53,9 +53,9 @@
 
 ## ⭐ Dégradé
 
-|              Rendu               |
-| :------------------------------: |
-| ![](./output/black_gradient.png) |
+| Avant                        |              Après               |
+| ---------------------------- | :------------------------------: |
+| ![](./output/base_image.png) | ![](./output/black_gradient.png) |
 
 ## ⭐⭐ Miroir
 
@@ -93,22 +93,22 @@
 
 ## ⭐⭐(⭐) Disque
 
-| Rendu                    |
-| ------------------------ |
-| ![](./output/circle.png) |
+| Avant                        |          Après           |
+| ---------------------------- | :----------------------: |
+| ![](./output/base_image.png) | ![](./output/circle.png) |
 
 - ### ⭐ Cercle
-  | Rendu                         |
-  | ----------------------------- |
-  | ![](./output/line_circle.png) |
+  | Avant                        |             Après             |
+  | ---------------------------- | :---------------------------: |
+  | ![](./output/base_image.png) | ![](./output/line_circle.png) |
 - ### ⭐⭐ Animation
-  | Rendu              |
-  | ------------------ |
-  | ![](./output/.png) |
+  | Avant                        |          Après           |
+  | ---------------------------- | :----------------------: |
+  | ![](./output/base_image.png) | ![](./output/circle.png) |
 - ### ⭐⭐⭐ Rosace
-  | Rendu                    |
-  | ------------------------ |
-  | ![](./output/circle.png) |
+  | Avant                        |          Après           |
+  | ---------------------------- | :----------------------: |
+  | ![](./output/base_image.png) | ![](./output/circle.png) |
 
 ## ⭐⭐ Mosaïque
 
@@ -140,9 +140,9 @@ Pour la mosaïque miroir,
 
 ## ⭐⭐⭐(⭐) Fractale de Mandelbrot
 
-| Rendu                        |
-| ---------------------------- |
-| ![](./output/mandelbrot.png) |
+| Avant                        |            Après             |
+| ---------------------------- | :--------------------------: |
+| ![](./output/base_image.png) | ![](./output/mandelbrot.png) |
 
 ## ⭐⭐⭐(⭐) Tramage
 
