@@ -93,27 +93,27 @@
 
 ## ⭐⭐(⭐) Disque
 
-| Avant                        |          Après           |
-| ---------------------------- | :----------------------: |
+|            Avant             |          Après           |
+| :--------------------------: | :----------------------: |
 | ![](./output/base_image.png) | ![](./output/circle.png) |
 
 - ### ⭐ Cercle
-  | Avant                        |             Après             |
-  | ---------------------------- | :---------------------------: |
+  |            Avant             |             Après             |
+  | :--------------------------: | :---------------------------: |
   | ![](./output/base_image.png) | ![](./output/line_circle.png) |
 - ### ⭐⭐ Animation
-  | Avant                        |          Après           |
-  | ---------------------------- | :----------------------: |
+  |            Avant             |          Après           |
+  | :--------------------------: | :----------------------: |
   | ![](./output/base_image.png) | ![](./output/circle.png) |
 - ### ⭐⭐⭐ Rosace
-  | Avant                        |          Après           |
-  | ---------------------------- | :----------------------: |
+  |            Avant             |          Après           |
+  | :--------------------------: | :----------------------: |
   | ![](./output/base_image.png) | ![](./output/circle.png) |
 
 ## ⭐⭐ Mosaïque
 
-| Avant                  |                          Après                           |
-| ---------------------- | :------------------------------------------------------: |
+|         Avant          |                          Après                           |
+| :--------------------: | :------------------------------------------------------: |
 | ![](./images/logo.png) | <img src="./output/mosaic.png" width="300" height="345"> |
 
 Pour la mosaïque, j'ai multiplié la taille de l'image par cinq par rapport à l'image d'origine.
@@ -126,8 +126,8 @@ Pour la mosaïque, j'ai multiplié la taille de l'image par cinq par rapport à 
 
 ## ⭐⭐⭐⭐ Mosaïque miroir
 
-| Avant                  |                              Après                              |
-| ---------------------- | :-------------------------------------------------------------: |
+|         Avant          |                              Après                              |
+| :--------------------: | :-------------------------------------------------------------: |
 | ![](./images/logo.png) | <img src="./output/mirror_mosaic.png" width="300" height="345"> |
 
 Pour la mosaïque miroir,
@@ -140,20 +140,20 @@ Pour la mosaïque miroir,
 
 ## ⭐⭐⭐(⭐) Fractale de Mandelbrot
 
-| Avant                        |            Après             |
-| ---------------------------- | :--------------------------: |
+|            Avant             |            Après             |
+| :--------------------------: | :--------------------------: |
 | ![](./output/base_image.png) | ![](./output/mandelbrot.png) |
 
 ## ⭐⭐⭐(⭐) Tramage
 
-| Avant                   |           Après           |
-| ----------------------- | :-----------------------: |
+|          Avant          |           Après           |
+| :---------------------: | :-----------------------: |
 | ![](./images/photo.jpg) | ![](./output/tramage.png) |
 
 ## Quelques effets
 
-| Avant                  |                            Après                             |
-| ---------------------- | :----------------------------------------------------------: |
+|         Avant          |                            Après                             |
+| :--------------------: | :----------------------------------------------------------: |
 | ![](./images/logo.png) | <img src="./output/new_effect.png" width="300" height="345"> |
 
 Lors de la réalisation de ma mosaïque mirroir. La mosaïque a créé des trames horizontales. Quand on zoom et dézoom, à cause du problème d'affichage. Le visuel change quand on zoom ou dézoom la photo"
