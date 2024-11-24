@@ -1,10 +1,10 @@
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
-# S1 | Prog: Workshop
+# Lilian Peuron - S1 | Prog: Workshop
 
 <!-- code_chunk_output -->
 
-- [S1 | Prog: Workshop](#s1--prog-workshop)
+- [Lilian Peuron - S1 | Prog: Workshop](#lilian-peuron---s1--prog-workshop)
   - [⭐ Ne garder que le vert](#-ne-garder-que-le-vert)
   - [⭐ Échanger les canaux](#-échanger-les-canaux)
   - [⭐ Noir & Blanc](#-noir--blanc)
@@ -29,57 +29,57 @@
 
 ## ⭐ Ne garder que le vert
 
-| Avant                  |               Après               |
-| ---------------------- | :-------------------------------: |
-| ![](./images/logo.png) | ![](./output/keep_green_only.png) |
+| Avant                                                  |                               Après                               |
+| ------------------------------------------------------ | :---------------------------------------------------------------: |
+| <img src="./images/logo.png" width="300" height="345"> | <img src="./output/keep_green_only.png" width="300" height="345"> |
 
 ## ⭐ Échanger les canaux
 
-| Avant                  |              Après              |
-| ---------------------- | :-----------------------------: |
-| ![](./images/logo.png) | ![](./output/channels_swap.png) |
+| Avant                                                  |                              Après                              |
+| ------------------------------------------------------ | :-------------------------------------------------------------: |
+| <img src="./images/logo.png" width="300" height="345"> | <img src="./output/channels_swap.png" width="300" height="345"> |
 
 ## ⭐ Noir & Blanc
 
-| Avant                  |               Après               |
-| ---------------------- | :-------------------------------: |
-| ![](./images/logo.png) | ![](./output/black_and_white.png) |
+| Avant                                                  |                               Après                               |
+| ------------------------------------------------------ | :---------------------------------------------------------------: |
+| <img src="./images/logo.png" width="300" height="345"> | <img src="./output/black_and_white.png" width="300" height="345"> |
 
 ## ⭐ Négatif
 
-| Avant                  |          Après           |
-| ---------------------- | :----------------------: |
-| ![](./images/logo.png) | ![](./output/invert.png) |
+| Avant                                                  |                          Après                           |
+| ------------------------------------------------------ | :------------------------------------------------------: |
+| <img src="./images/logo.png" width="300" height="345"> | <img src="./output/invert.png" width="300" height="345"> |
 
 ## ⭐ Dégradé
 
-| Avant                        |              Après               |
-| ---------------------------- | :------------------------------: |
-| ![](./output/base_image.png) | ![](./output/black_gradient.png) |
+| Avant                                                        |                              Après                               |
+| ------------------------------------------------------------ | :--------------------------------------------------------------: |
+| <img src="./output/base_image.png" width="500" height="500"> | <img src="./output/black_gradient.png" width="500" height="500"> |
 
 ## ⭐⭐ Miroir
 
-| Avant                  |          Après           |
-| ---------------------- | :----------------------: |
-| ![](./images/logo.png) | ![](./output/mirror.png) |
+| Avant                                                  |                          Après                           |
+| ------------------------------------------------------ | :------------------------------------------------------: |
+| <img src="./images/logo.png" width="300" height="345"> | <img src="./output/mirror.png" width="300" height="345"> |
 
 ## ⭐⭐ Image bruitée
 
-| Avant                  |          Après          |
-| ---------------------- | :---------------------: |
-| ![](./images/logo.png) | ![](./output/noise.png) |
+| Avant                                                  |                          Après                          |
+| ------------------------------------------------------ | :-----------------------------------------------------: |
+| <img src="./images/logo.png" width="300" height="345"> | <img src="./output/noise.png" width="300" height="345"> |
 
 ## ⭐⭐ Rotation de 90°
 
-| Avant                  |           Après            |
-| ---------------------- | :------------------------: |
-| ![](./images/logo.png) | ![](./output/rotate90.png) |
+| Avant                                                  |           Après            |
+| ------------------------------------------------------ | :------------------------: |
+| <img src="./images/logo.png" width="300" height="345"> | ![](./output/rotate90.png) |
 
 ## ⭐⭐ RGB split
 
-| Avant                  |            Après            |
-| ---------------------- | :-------------------------: |
-| ![](./images/logo.png) | ![](./output/rgb_split.png) |
+| Avant                                                  |                            Après                            |
+| ------------------------------------------------------ | :---------------------------------------------------------: |
+| <img src="./images/logo.png" width="300" height="345"> | <img src="./output/rgb_split.png" width="300" height="345"> |
 
 ## ⭐⭐ Luminosité
 
@@ -93,18 +93,18 @@
 
 ## ⭐⭐(⭐) Disque
 
-|            Avant             |          Après           |
-| :--------------------------: | :----------------------: |
-| ![](./output/base_image.png) | ![](./output/circle.png) |
+|                            Avant                             |                          Après                           |
+| :----------------------------------------------------------: | :------------------------------------------------------: |
+| <img src="./output/base_image.png" width="500" height="500"> | <img src="./output/circle.png" width="500" height="500"> |
 
 - ### ⭐ Cercle
-  |            Avant             |             Après             |
-  | :--------------------------: | :---------------------------: |
-  | ![](./output/base_image.png) | ![](./output/line_circle.png) |
+  |                            Avant                             |                             Après                             |
+  | :----------------------------------------------------------: | :-----------------------------------------------------------: |
+  | <img src="./output/base_image.png" width="500" height="500"> | <img src="./output/line_circle.png" width="500" height="500"> |
 - ### ⭐⭐ Animation
-  |            Avant             |          Après           |
-  | :--------------------------: | :----------------------: |
-  | ![](./output/base_image.png) | ![](./output/circle.png) |
+  |                            Avant                             |                            Après                             |
+  | :----------------------------------------------------------: | :----------------------------------------------------------: |
+  | <img src="./output/base_image.png" width="500" height="500"> | <img src="./output/base_image.png" width="500" height="500"> |
 - ### ⭐⭐⭐ Rosace
   |            Avant             |          Après           |
   | :--------------------------: | :----------------------: |
@@ -112,9 +112,9 @@
 
 ## ⭐⭐ Mosaïque
 
-|         Avant          |                          Après                           |
-| :--------------------: | :------------------------------------------------------: |
-| ![](./images/logo.png) | <img src="./output/mosaic.png" width="300" height="345"> |
+|                         Avant                          |                          Après                           |
+| :----------------------------------------------------: | :------------------------------------------------------: |
+| <img src="./images/logo.png" width="300" height="345"> | <img src="./output/mosaic.png" width="300" height="345"> |
 
 Pour la mosaïque, j'ai multiplié la taille de l'image par cinq par rapport à l'image d'origine.
 
@@ -126,9 +126,9 @@ Pour la mosaïque, j'ai multiplié la taille de l'image par cinq par rapport à 
 
 ## ⭐⭐⭐⭐ Mosaïque miroir
 
-|         Avant          |                              Après                              |
-| :--------------------: | :-------------------------------------------------------------: |
-| ![](./images/logo.png) | <img src="./output/mirror_mosaic.png" width="300" height="345"> |
+|                         Avant                          |                              Après                              |
+| :----------------------------------------------------: | :-------------------------------------------------------------: |
+| <img src="./images/logo.png" width="300" height="345"> | <img src="./output/mirror_mosaic.png" width="300" height="345"> |
 
 Pour la mosaïque miroir,
 
