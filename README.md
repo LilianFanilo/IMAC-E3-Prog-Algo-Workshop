@@ -55,7 +55,7 @@
 
 | Avant                                                        |                              Après                               |
 | ------------------------------------------------------------ | :--------------------------------------------------------------: |
-| <img src="./output/base_image.png" width="500" height="500"> | <img src="./output/black_gradient.png" width="500" height="500"> |
+| <img src="./output/base_image.png" width="300" height="300"> | <img src="./output/black_gradient.png" width="300" height="300"> |
 
 ## ⭐⭐ Miroir
 
@@ -95,16 +95,16 @@
 
 |                            Avant                             |                          Après                           |
 | :----------------------------------------------------------: | :------------------------------------------------------: |
-| <img src="./output/base_image.png" width="500" height="500"> | <img src="./output/circle.png" width="500" height="500"> |
+| <img src="./output/base_image.png" width="300" height="300"> | <img src="./output/circle.png" width="300" height="300"> |
 
 - ### ⭐ Cercle
   |                            Avant                             |                             Après                             |
   | :----------------------------------------------------------: | :-----------------------------------------------------------: |
-  | <img src="./output/base_image.png" width="500" height="500"> | <img src="./output/line_circle.png" width="500" height="500"> |
+  | <img src="./output/base_image.png" width="300" height="300"> | <img src="./output/line_circle.png" width="300" height="300"> |
 - ### ⭐⭐ Animation
   |                            Avant                             |                            Après                             |
   | :----------------------------------------------------------: | :----------------------------------------------------------: |
-  | <img src="./output/base_image.png" width="500" height="500"> | <img src="./output/base_image.png" width="500" height="500"> |
+  | <img src="./output/base_image.png" width="300" height="300"> | <img src="./output/base_image.png" width="300" height="300"> |
 - ### ⭐⭐⭐ Rosace
   |            Avant             |          Après           |
   | :--------------------------: | :----------------------: |
