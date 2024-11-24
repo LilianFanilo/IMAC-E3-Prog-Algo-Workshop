@@ -236,7 +236,42 @@ void animation(sil::Image& image)
 
 void rosace(sil::Image& image)
 {
+    int r{100};
+    int thinkeness{5};
+    int r_dessin { r - thinkeness / 2 };
 
+    for (int x{0}; x < image.width(); x++)
+    {
+        for (int y{0}; y < image.height(); y++)
+        {
+
+            if (pow((x - (image.width() / 2)), 2) + pow((y - (image.height() / 2)), 2) <= (r * r) and
+                pow((x - (image.width() / 2)), 2) + pow((y - (image.height() / 2)), 2) >= ((r_dessin - thinkeness) * (r_dessin - thinkeness)))
+            {
+                image.pixel(x, y).r = 1.f;
+                image.pixel(x, y).g = 1.f;
+                image.pixel(x, y).b = 1.f;
+            }
+
+            for (int i{0}; i <= 5; i++)
+            {
+                if (
+                    pow((x - ((image.width() / 2) + (r * cos((i * M_PI) / 3)))), 2) +
+                            pow((y - ((image.width() / 2) + (r * sin((i * M_PI) / 3)))), 2) <=
+                        (r * r) and
+                    pow((x - ((image.width() / 2) + (r * cos((i * M_PI) / 3)))), 2) +
+                            pow((y - ((image.width() / 2) + (r * sin((i * M_PI) / 3)))), 2) >=
+                        ((r_dessin - thinkeness) * (r_dessin - thinkeness)))
+                {
+                    image.pixel(x, y).r = 1.f;
+                    image.pixel(x, y).g = 1.f;
+                    image.pixel(x, y).b = 1.f;
+                }
+            }
+        }
+    }
+
+    image.save("output/rosace.png");
 }
 
 void mosaic(sil::Image& image)
