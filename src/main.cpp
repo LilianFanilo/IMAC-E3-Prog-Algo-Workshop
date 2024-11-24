@@ -417,68 +417,33 @@ void mirror_mosaic(sil::Image& image)
 
 void glitch(sil::Image& image)
 {
-    int random_glitch {random_int(1, 15)};
+    int rectangles{20};
 
-        for (int x{0}; x < image.width(); x++)
+    while (rectangles != 0)
+    {
+
+        sil::Image rect{random_int(3, 50) /*width*/, random_int(2, 15) /*height*/};
+        sil::Image rect2{rect.width() /*width*/, rect.height() /*height*/};
+
+        int imageXrect1{random_int(0, (image.width() - rect.width()))};
+        int imageYrect1{random_int(0, (image.height() - rect.height()))};
+
+        int imageXrect2{random_int(0, (image.width() - rect.width()))};
+        int imageYrect2{random_int(0, (image.height() - rect.height()))};
+
+        for (int x{0}; x < rect.width(); x++)
         {
-            for (int y{0}; y < image.height(); y++)
+            for (int y{0}; y < rect.height(); y++)
             {
-                for (int i = 0; i < random_glitch; i++)
-                {
-                    int size_x_max {random_int(1,15)};
-                    int size_y_max {random_int(1,15)};
+                rect.pixel(x, y) = image.pixel((x + imageXrect1), (y + imageYrect1));
+                rect2.pixel(x, y) = image.pixel((x + imageXrect2), (y + imageYrect2));
 
-                    int randomX_1 {random_int(1,image.width())};
-                    int randomY_1 {random_int(1,image.height())};
-                    int randomX_2 {random_int(1,image.width())};
-                    int randomY_2 {random_int(1,image.height())};
-
-                    for (int size_x = 0; size_x < size_x_max; size_x++)
-                    {
-                            int width_1 {randomX_1 + size_x};
-                            int width_2 {randomX_2 + size_x};
-
-                            if ( width_1 >= image.width())
-                            {
-                                width_1 = image.width() - 1 ;
-                            }
-                            else {
-                                continue;
-                            }
-                             if ( width_2 >= image.width() )
-                            {
-                                width_2 = image.width() - 1 ;
-                            }
-                            else {
-                                continue;
-                            }
-                        for (int size_y = 0; size_y < size_y_max; size_y++)
-                        {
-                            int height_1 {randomY_1 + size_y};
-
-                            int height_2 {randomY_2 + size_y};
-                            
-                            if ( height_1 >= image.height() )
-                            {
-                                height_1 = image.height() - 1 ;
-                            }
-                             else {
-                                continue;
-                            }
-                            if ( height_2 >= image.height() )
-                            {
-                                height_2 = image.height() - 1 ;
-                            } else {
-                                continue;
-                            }
-                            
-                            std::swap(image.pixel(width_1 , height_1),image.pixel(width_2 , height_2));
-                        }
-                    }
-                    
-                }
+                image.pixel((x + imageXrect2), (y + imageYrect2)) = rect.pixel(x, y);
+                image.pixel((x + imageXrect1), (y + imageYrect1)) = rect2.pixel(x, y);
             }
         }
+        rectangles -= 1;
+    }
 }
 
 void new_pixel_sorting(sil::Image& image)
@@ -504,9 +469,64 @@ void new_pixel_sorting(sil::Image& image)
     }
 }
 
-void pixel_sorting(sil::Image& image)
+float brightness(glm::vec3 color)
 {
+    return ((color[0] + color[1] + color[2]) / 3);
+}
 
+void pixel_sorting(sil::Image image)
+{
+    sil::Image tri(image.width(), image.height());
+    sil::Image rect(50, 1);
+
+    int nb_rectangles{500};
+
+    while (nb_rectangles > 0)
+    {
+        std::vector<glm::vec3> pixels{};
+        int imageXrect{random_int(0, (image.width() - rect.width()))};
+        int imageYrect{random_int(0, (image.height() - rect.height()))};
+
+        for (int x{0}; x < rect.width(); x++)
+        {
+            for (int y{0}; y < rect.height(); y++)
+            {
+                rect.pixel(x, y) = image.pixel((x + imageXrect), (y + imageYrect));
+            }
+        }
+
+        for (int x{0}; x < rect.width(); x++)
+        {
+            for (int y{0}; y < rect.height(); y++)
+            {
+                pixels.push_back(rect.pixel(x, y));
+                std::sort(pixels.begin(), pixels.end(), [](glm::vec3 const &color1, glm::vec3 const &color2)
+                          {
+                              return brightness(color1) < brightness(color2); // Trie selon la luminosité des couleurs (NB : c'est à vous de coder la fonction `brightness`)
+                          });
+            }
+        }
+
+        for (int x{0}; x < rect.width(); x++)
+        {
+            for (int y{0}; y < rect.height(); y++)
+            {
+                rect.pixel(x, y) = pixels[x];
+            }
+        }
+
+        for (int x{0}; x < rect.width(); x++)
+        {
+            for (int y{0}; y < rect.height(); y++)
+            {
+                image.pixel((x + imageXrect), (y + imageYrect)) = rect.pixel(x, y);
+            }
+        }
+
+        nb_rectangles--;
+    }
+
+    image.save("output/pixel_sorting.png");
 }
 
 struct Lab {float L; float a; float b;};
@@ -704,7 +724,6 @@ int main()
     // {
     //     sil::Image image{"images/logo.png"};
     //     pixel_sorting(image);
-    //     image.save("output/pixel_sorting.png");
     // }
     // {
     //     sil::Image image{500,500};

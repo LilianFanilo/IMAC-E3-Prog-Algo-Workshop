@@ -20,10 +20,10 @@
   - [⭐⭐⭐⭐ Mosaïque miroir](#-mosaïque-miroir)
   - [⭐⭐⭐ Glitch](#-glitch)
   - [⭐⭐⭐ Tri de pixels](#-tri-de-pixels)
-  - [⭐⭐⭐ Dégradé dans l'espace de couleur Lab](#-dégradé-dans-lespace-de-couleur-lab)
+  - [⭐⭐⭐ Dégradé dans l'espace de couleur Lab (pas fini)](#-dégradé-dans-lespace-de-couleur-lab-pas-fini)
   - [⭐⭐⭐(⭐) Fractale de Mandelbrot](#-fractale-de-mandelbrot)
   - [⭐⭐⭐(⭐) Tramage](#-tramage)
-  - [Quelques effets](#quelques-effets)
+  - [Quelques effets & bugs](#quelques-effets--bugs)
 
 <!-- /code_chunk_output -->
 
@@ -106,9 +106,9 @@
   | :----------------------------------------------------------: | :----------------------------------------------------------: |
   | <img src="./output/base_image.png" width="300" height="300"> | <img src="./output/base_image.png" width="300" height="300"> |
 - ### ⭐⭐⭐ Rosace
-  |            Avant             |          Après           |
-  | :--------------------------: | :----------------------: |
-  | ![](./output/base_image.png) | ![](./output/circle.png) |
+  |                            Avant                             |                          Après                           |
+  | :----------------------------------------------------------: | :------------------------------------------------------: |
+  | <img src="./output/base_image.png" width="300" height="300"> | <img src="./output/rosace.png" width="300" height="300"> |
 
 ## ⭐⭐ Mosaïque
 
@@ -121,6 +121,37 @@ Pour la mosaïque, j'ai multiplié la taille de l'image par cinq par rapport à 
 À chaque fois que mon compteur x équivaut à la width ou que mon compteur y équivaut à la height de l'image d'origine, le compteur en question se réinitialise à zéro.
 
 ```cpp
+void mosaic(sil::Image& image)
+{
+    sil::Image img_mosaic{(image.width() * 5),(image.height() * 5)};
+    int counterX {};
+    int counterY {};
+
+        for (int x{0}; x < img_mosaic.width(); x++)
+        {
+            counterX++;
+
+            if (counterX == image.width())
+            {
+                counterX = 0 ;
+            }
+
+            for (int y{0}; y < img_mosaic.height(); y++)
+            {
+                counterY++;
+
+                if (counterY == image.height())
+                {
+                    counterY = 0;
+                }
+
+                img_mosaic.pixel(x,y) = image.pixel(counterX,counterY);
+
+            }
+        }
+
+    img_mosaic.save("output/mosaic.png");
+}
 
 ```
 
@@ -130,19 +161,99 @@ Pour la mosaïque, j'ai multiplié la taille de l'image par cinq par rapport à 
 | :----------------------------------------------------: | :-------------------------------------------------------------: |
 | <img src="./images/logo.png" width="300" height="345"> | <img src="./output/mirror_mosaic.png" width="300" height="345"> |
 
-Pour la mosaïque miroir,
+Pour la mosaïque miroir, j'ai ajouté deux compteurs pour savoir si je devais inverser l'image horizontalement et/ou verticalement.
+
+```cpp
+  void mirror_mosaic(sil::Image& image)
+{
+    sil::Image img_mosaic{(image.width() * 5),(image.height() * 5)};
+    int counterX {};
+    int counterY {};
+    int isMirrorX {};
+    int isMirrorY {};
+
+
+        for (int x{0}; x < img_mosaic.width(); x++)
+        {
+            counterX++;
+
+            if (counterX == image.width())
+            {
+                counterX = 0 ;
+                isMirrorX ++;
+            }
+
+
+            for (int y{0}; y < img_mosaic.height(); y++)
+            {
+                counterY++;
+
+                if (counterY == image.height())
+                {
+                    counterY = 0;
+                    isMirrorY ++;
+
+                    if (isMirrorY > 4)
+                    {
+                        isMirrorY = 0;
+                    }
+
+                }
+
+                if (isMirrorX % 2 != 0)
+                {
+                    if (isMirrorY % 2 != 0)
+                    {
+                        img_mosaic.pixel(x,y) = image.pixel((image.width() - 1 - counterX),(image.height() - 1 - counterY));
+                    }
+                    else
+                    {
+                        img_mosaic.pixel(x,y) = image.pixel((image.width() - 1 - counterX),counterY);
+                    }
+                }
+                else
+                {
+                    if (isMirrorY % 2 != 0)
+                    {
+                        img_mosaic.pixel(x,y) = image.pixel(counterX, (image.height() - 1 - counterY));
+                    }
+                    else
+                    {
+                        img_mosaic.pixel(x,y) = image.pixel(counterX,counterY);
+                    }
+                }
+            }
+        }
+
+            img_mosaic.save("output/mirror_mosaic.png");
+}
+```
 
 ## ⭐⭐⭐ Glitch
 
+| Avant                                                  |                          Après                           |
+| ------------------------------------------------------ | :------------------------------------------------------: |
+| <img src="./images/logo.png" width="300" height="345"> | <img src="./output/glitch.png" width="300" height="345"> |
+
 ## ⭐⭐⭐ Tri de pixels
 
-## ⭐⭐⭐ Dégradé dans l'espace de couleur Lab
+| Avant                                                  |                              Après                              |
+| ------------------------------------------------------ | :-------------------------------------------------------------: |
+| <img src="./images/logo.png" width="300" height="345"> | <img src="./output/pixel_sorting.png" width="300" height="345"> |
+
+## ⭐⭐⭐ Dégradé dans l'espace de couleur Lab (pas fini)
+
+|                            Avant                             |                             Après                              |
+| :----------------------------------------------------------: | :------------------------------------------------------------: |
+| <img src="./output/base_image.png" width="300" height="300"> | <img src="./output/gradient_lab.png" width="300" height="300"> |
+
+J'ai créé le gradient mais je n'ai pas réussi à le convertir en espace de couleur Lab.
 
 ## ⭐⭐⭐(⭐) Fractale de Mandelbrot
 
-|            Avant             |            Après             |
-| :--------------------------: | :--------------------------: |
-| ![](./output/base_image.png) | ![](./output/mandelbrot.png) |
+|                            Avant                             |                            Après                             |
+| :----------------------------------------------------------: | :----------------------------------------------------------: |
+| <img src="./output/base_image.png" width="300" height="300"> | <img src="./output/mandelbrot.png" width="300" height="300"> |
 
 ## ⭐⭐⭐(⭐) Tramage
 
@@ -150,13 +261,13 @@ Pour la mosaïque miroir,
 | :---------------------: | :-----------------------: |
 | ![](./images/photo.jpg) | ![](./output/tramage.png) |
 
-## Quelques effets
+## Quelques effets & bugs
 
 |         Avant          |                            Après                             |
 | :--------------------: | :----------------------------------------------------------: |
 | ![](./images/logo.png) | <img src="./output/new_effect.png" width="300" height="345"> |
 
-Lors de la réalisation de ma mosaïque mirroir. La mosaïque a créé des trames horizontales. Quand on zoom et dézoom, à cause du problème d'affichage. Le visuel change quand on zoom ou dézoom la photo"
+Lors de la réalisation de ma mosaïque mirroir. La mosaïque a créé des trames horizontales. Quand on zoom et dézoom, à cause du problème d'affichage. Le visuel change quand on zoom ou dézoom la photo sur VScode, le lecteur d'image à des problèmes d'affichage."
 
 ```cpp
 void new_effect(sil::Image& image)
@@ -205,5 +316,3 @@ void new_effect(sil::Image& image)
 | Avant                  |                Après                |
 | ---------------------- | :---------------------------------: |
 | ![](./images/logo.png) | ![](./output/new_pixel_sorting.png) |
-
-Tri de couleur
